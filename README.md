@@ -1,8 +1,7 @@
-# Self-Supervised Pre-Training with Contrastive and Masked Autoencoder Methods for Dealing with Small Datasets in Deep Learning for Medical Imaging
+# Less is More: Selective reduction of CT data for self-supervised pre-training of deep learning models with contrastive learning improves downstream classification performance
 
-Publication about self-supervised pre-training in medical imaging accepted in Nature Scientific Reports. \
-Nature: https://doi.org/10.1038/s41598-023-46433-0 \
-ArXiv: <https://arxiv.org/abs/2308.06534>
+Publication about self-supervised pre-training in medical imaging accepted in the Elsevier Journal [Computers in Biology and Medicine](https://www.sciencedirect.com/journal/computers-in-biology-and-medicine). \
+DOI: [https://doi.org/10.1038/s41598-023-46433-0](https://doi.org/10.1016/j.compbiomed.2024.109242)
 
 ## Introduction
 Training deep learning models requires large datasets with annotations for all training samples. However, in the medical imaging domain, annotated datasets for specific tasks are often small due to the high complexity of annotations, limited access, or the rarity of diseases. To address this challenge, deep learning models can be pre-trained on large image datasets without annotations using methods from the field of self-supervised learning.
