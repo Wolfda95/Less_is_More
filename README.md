@@ -32,7 +32,7 @@ Go to the folder [PreTrain-Data_Reduction](https://github.com/Wolfda95/Less_is_M
 Here is the code to reduce the pre-training dataset using the best performing reduction method "Hash". \
 Pre-training with the reduced dataset will improve your downstream results and make your pre-training faster. 
 
-##### 1.2) Pre-Training with Contrastive Learning
+##### 1.3) Pre-Training with Contrastive Learning
 Go to the folder [Pre-Training/Contrastive_Learning](https://github.com/Wolfda95/Less_is_More/tree/main/Pre-Training/Contrastive_Learning). \
 Here is the code and further explanations for pre-training our model using the contrastive learning method SwAV.  
 For other pre-training methods like MoCo or SparK please look at this GitHub Repo: [https://github.com/Wolfda95/SSL-MedicalImagining-CL-MAE/tree/main/Pre-Training](https://github.com/Wolfda95/SSL-MedicalImagining-CL-MAE/tree/main/Pre-Training)
