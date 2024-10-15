@@ -1,22 +1,39 @@
 # Less is More: Selective reduction of CT data for self-supervised pre-training of deep learning models with contrastive learning improves downstream classification performance
 
-Publication about self-supervised pre-training in medical imaging accepted in the Elsevier Journal [Computers in Biology and Medicine](https://www.sciencedirect.com/journal/computers-in-biology-and-medicine). \
+Publication about self-supervised pre-training in medical imaging accepted in the Elsevier Journal [Computers in Biology and Medicine](https://www.sciencedirect.com/journal/computers-in-biology-and-medicine). 
+
 DOI: [https://doi.org/10.1038/s41598-023-46433-0](https://doi.org/10.1016/j.compbiomed.2024.109242)
 
 ## Introduction
-Training deep learning models requires large datasets with annotations for all training samples. However, in the medical imaging domain, annotated datasets for specific tasks are often small due to the high complexity of annotations, limited access, or the rarity of diseases. To address this challenge, deep learning models can be pre-trained on large image datasets without annotations using methods from the field of self-supervised learning.
-In this paper we compare state-of-the-art self-supervised pre-training methods based on contrastive learning ([SwAV](https://proceedings.neurips.cc/paper/2020/hash/70feb62b69f16e0238f741fab228fec2-Abstract.html), [MoCo](https://openaccess.thecvf.com/content_CVPR_2020/html/He_Momentum_Contrast_for_Unsupervised_Visual_Representation_Learning_CVPR_2020_paper.html), [BYOL](https://proceedings.neurips.cc/paper_files/paper/2020/file/f3ada80d5c4ee70142b17b8192b2958e-Paper.pdf)) and masked autoencoders ([SparK](https://openreview.net/forum?id=NRxydtWup1S)) for convolutional neural networks (CNNs).
+![image](https://github.com/user-attachments/assets/445bc797-62b9-472f-8173-518c0e042d86)
 
-![SSL](https://github.com/Wolfda95/SSL-MedicalImagining-CL-MAE/assets/75016933/cf1589b7-4ea7-463e-866b-15586e131cd0)
-
-Due to the challenge of obtaining sufficient annotated training data in medical imaging, it is of particular interest to evaluate how the self-supervised pre-training methods perform when fine-tuning on small datasets. Our experiments show, that the SparK pre-training method is more robust to the training downstream dataset size than the contrastive methods. Based on our results, we propose the SparK pre-training for medical imaging tasks with only small annotated datasets.
+#### Background:
+Self-supervised pre-training of deep learning models with contrastive learning is a widely used technique in image analysis. Current findings indicate a strong potential for contrastive pre-training on medical images. However, further research is necessary to incorporate the particular characteristics of these images.
+#### Method:
+We hypothesize that the similarity of medical images hinders the success of contrastive learning in the medical imaging domain. To this end, we investigate different strategies based on deep embedding, information theory, and hashing in order to identify and reduce redundancy in medical pre-training datasets. The effect of these different reduction strategies on contrastive learning is evaluated on two pre-training datasets and several downstream classification tasks.
+#### Results:
+In all of our experiments, dataset reduction leads to a considerable performance gain in downstream tasks, e.g., an AUC score improvement from 0.78 to 0.83 for the COVID CT Classification Grand Challenge, 0.97 to 0.98 for the OrganSMNIST Classification Challenge and 0.73 to 0.83 for a brain hemorrhage classification task. Furthermore, pre-training is up to nine times faster due to the dataset reduction.
+#### Conclusions:
+In conclusion, the proposed approach highlights the importance of dataset quality and provides a transferable approach to improve contrastive pre-training for classification downstream tasks on medical images.
 
 ## Code 
 
 ### 1) Pre-Training
-First, the deep learning model needs to be pre-trained with a large dataset of images without annotations. \
-Go to the folder [Pre-Training](https://github.com/Wolfda95/SSL-MedicalImagining-CL-MAE/tree/main/Pre-Training) for the the pre-training code and further explanations.. \
-You can download our pre-trained models below.
+First, the deep learning model needs to be pre-trained with large datasets of images without annotations. \
+
+##### 1.1) Pre-Train Data Preprocessing
+Go to the folder [PreTrain-Data_Preprocessing](https://github.com/Wolfda95/Less_is_More/tree/main/PreTrain-Data_Preprocessing). \
+Here we explain where you can download our pre-training datasets and how to convert them from 3D volumes in nifti or dicom format to 2D png images.
+
+##### 1.2) Pre-Train Data Reduction
+Go to the folder [PreTrain-Data_Reduction](https://github.com/Wolfda95/Less_is_More/tree/main/PreTrain-Data_Reduction). \
+Here is the code to reduce the pre-training dataset using the best performing reduction method "Hash". \
+Pre-training with the reduced dataset will improve your downstream results and make your pre-training faster. 
+
+##### 1.2) Pre-Training with Contrastive Learning
+Go to the folder [Pre-Training/Contrastive_Learning](https://github.com/Wolfda95/Less_is_More/tree/main/Pre-Training/Contrastive_Learning). \
+Here is the code for pre-training our model with the Contrastive Learning method SwAV. 
+For other pre-training methods like MoCo or SparK please look at this GitHub Repo: [https://github.com/Wolfda95/SSL-MedicalImagining-CL-MAE/tree/main/Pre-Training](https://github.com/Wolfda95/SSL-MedicalImagining-CL-MAE/tree/main/Pre-Training)
 
 ### 2) Downstream
 The pre-training is evaluated on three downstream classification tasks. \
