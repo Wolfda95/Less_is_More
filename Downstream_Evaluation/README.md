@@ -7,8 +7,8 @@ We tested our pre-training on three CT classification tasks:
 - **Brain**: Brain hemorrhage classification on brain CT scans on an internal dataset of the Ulm Univerity Medical Center
 
 Here is an overview of our results:
-![Results](https://github.com/Wolfda95/SSL-MedicalImagining-CL-MAE/assets/75016933/83df9ede-bbf9-4eea-816c-f9de718ee764)
 
+![image](https://github.com/user-attachments/assets/72af104b-4444-4354-be0b-15977a1cbb09)
 
 
 ### How to Start: 
