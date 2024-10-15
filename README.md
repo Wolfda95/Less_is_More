@@ -48,10 +48,10 @@ You can download the pre-trained model checkpoints here from Google Drive:
 
 | Pre-Train Dataset  | Reduction                    | Model       |Dowwnload Link |
 | ------------------ | ---------------------------- |------------ | ------------  |
-| PET-CT             | No Reduction                 | ResNet50    |[PET-CT_All](https://drive.google.com/uc?export=download&id=1eBZYl1rXkKJxz42Wu75uzb1kLg8FTv1H)              |
-| PET-CT             | Hash-6 Reduced (Best Method) | ResNet50    |[PET-CT_Hash6](https://drive.google.com/uc?export=download&id=11OWRzifq_BXrcFMZ13H0HwS4UGcaiAn_)               |
-| LIDC               | No Reduction                 | ResNet50    |[LIDC_All](https://drive.google.com/uc?export=download&id=1hUr_6XdYxjB66ZYEGTqE7b8I88IN9a1l)            | 
-| LIDC               | Hash-6 Reduced (Best Method) | ResNet50    |[LIDC_Hash6](https://drive.google.com/uc?export=download&id=1kYFS67jH9s8kAmhNyf5wlRj_Gh9vTK_H)               |
+| PET-CT             | No Reduction                 | ResNet50    |[PET-CT_All](https://drive.google.com/uc?export=download&id=12APs6cLRc9techxEK-ABeIfvkO8Yj1hI)              |
+| PET-CT             | Hash-6 Reduced (Best Method) | ResNet50    |[PET-CT_Hash6](https://drive.google.com/uc?export=download&id=1fXz7fKgYsqlknlnx78tmtOy_QAMOoX8Y)               |
+| LIDC               | No Reduction                 | ResNet50    |[LIDC_All](https://drive.google.com/uc?export=download&id=1IOAFPFjQiQfCbGSunaTeNzrCCEFKqJR9)            | 
+| LIDC               | Hash-6 Reduced (Best Method) | ResNet50    |[LIDC_Hash6](https://drive.google.com/uc?export=download&id=1cFK4cMv30TGWiiu9L1pO5b-DTu2x_m3w)               |
 
 
 Here is code to initialise a ResNet50 model from PyTorch with the pre-training weights stored in the Checkpoint:  \
