@@ -2,6 +2,10 @@
 
 Here is the code for reducing the pre-training data with the best-perfoming reduction method Hash-6.
 
+The Hash reduction method: 
+![image](https://github.com/user-attachments/assets/19fee712-2335-4c99-9834-acef01cdd6f8)
+
+
 Before running those scripts do the steps in [PreTrain-Data_Preprocessing](https://github.com/Wolfda95/Less_is_More/tree/main/PreTrain-Data_Preprocessing) (Downloading the Pre-Trianing data and converting to 2D png images) 
 
 If you are using Conda on Linux, here is how to get started: 
