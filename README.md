@@ -19,7 +19,9 @@ In conclusion, the proposed approach highlights the importance of dataset qualit
 ## Code 
 
 ### 1) Pre-Training
-First, the deep learning model needs to be pre-trained with large datasets of images without annotations. \
+First, the deep learning model needs to be pre-trained with large datasets of images without annotations. 
+
+Instead of doing the pre-training yourself, you can also download our pre-trained models below and proceed to step 2) Downstream Evaluation.  
 
 ##### 1.1) Pre-Train Data Preprocessing
 Go to the folder [PreTrain-Data_Preprocessing](https://github.com/Wolfda95/Less_is_More/tree/main/PreTrain-Data_Preprocessing). \
@@ -32,36 +34,36 @@ Pre-training with the reduced dataset will improve your downstream results and m
 
 ##### 1.2) Pre-Training with Contrastive Learning
 Go to the folder [Pre-Training/Contrastive_Learning](https://github.com/Wolfda95/Less_is_More/tree/main/Pre-Training/Contrastive_Learning). \
-Here is the code for pre-training our model with the Contrastive Learning method SwAV. 
+Here is the code and further explanations for pre-training our model using the contrastive learning method SwAV.  
 For other pre-training methods like MoCo or SparK please look at this GitHub Repo: [https://github.com/Wolfda95/SSL-MedicalImagining-CL-MAE/tree/main/Pre-Training](https://github.com/Wolfda95/SSL-MedicalImagining-CL-MAE/tree/main/Pre-Training)
 
-### 2) Downstream
+### 2) Downstream Evaluation
 The pre-training is evaluated on three downstream classification tasks. \
 You can test the downstream tasks with the pre-trained models you can download below. \
-Go to the folder [Downstream](https://github.com/Wolfda95/SSL-MedicalImagining-CL-MAE/tree/main/Downstream) for the the downstream code and further explanations.
+Go to the folder [Downstream_Evaluation](https://github.com/Wolfda95/Less_is_More/tree/main/Downstream_Evaluation) for the the downstream code and further explanations.
 
 ## Pre-Trained Models 
 You can download the pre-trained model checkpoints here from Google Drive:
 
 
-| Pre-Training  | Method                | Model       |Dowwnload Link |
-| ------------- | -------------         |------------ | ------------  |
-| BYOL          | Contrastive Learning  | ResNet50    |[BYOL_Checkpoint](https://drive.google.com/uc?export=download&id=1eBZYl1rXkKJxz42Wu75uzb1kLg8FTv1H)              |
-| SwAV          | Contrastive Learning  | ResNet50    |[SwAV_Checkpoint](https://drive.google.com/uc?export=download&id=11OWRzifq_BXrcFMZ13H0HwS4UGcaiAn_)               |
-| MoCoV2        | Contrastive Learning  | ResNet50    |[MoCoV2_Checkpoint](https://drive.google.com/uc?export=download&id=1hUr_6XdYxjB66ZYEGTqE7b8I88IN9a1l)            | 
-| SaprK         | Masked Autoencoder    | ResNet50    |[SparK_Checkpoint](https://drive.google.com/uc?export=download&id=1kYFS67jH9s8kAmhNyf5wlRj_Gh9vTK_H)               |
+| Pre-Train Dataset  | Reduction                    | Model       |Dowwnload Link |
+| ------------------ | ---------------------------- |------------ | ------------  |
+| PET-CT             | No Reduction                 | ResNet50    |[PET-CT_All](https://drive.google.com/uc?export=download&id=1eBZYl1rXkKJxz42Wu75uzb1kLg8FTv1H)              |
+| PET-CT             | Hash-6 Reduced (Best Method) | ResNet50    |[PET-CT_Hash6](https://drive.google.com/uc?export=download&id=11OWRzifq_BXrcFMZ13H0HwS4UGcaiAn_)               |
+| LIDC               | No Reduction                 | ResNet50    |[LIDC_All](https://drive.google.com/uc?export=download&id=1hUr_6XdYxjB66ZYEGTqE7b8I88IN9a1l)            | 
+| LIDC               | Hash-6 Reduced (Best Method) | ResNet50    |[LIDC_Hash6](https://drive.google.com/uc?export=download&id=1kYFS67jH9s8kAmhNyf5wlRj_Gh9vTK_H)               |
 
 
 Here is code to initialise a ResNet50 model from PyTorch with the pre-training weights stored in the Checkpoint:  \
 (pytorch==1.12.1 torchvision==0.13.1) \
-You can also check out the the [Downstream](https://github.com/Wolfda95/SSL-MedicalImagining-CL-MAE/tree/main/Downstream) code where this is already implemented.
+You can also check out the the [Downstream_Evaluation](https://github.com/Wolfda95/Less_is_More/tree/main/Downstream_Evaluation) code where this is already implemented.
 
 ```python
 
+pre_train = "SwAV"
+
 # Fill out: 
-# Choose the Pre-Training Method here [options: "SparK", "SwAV", "MoCo", "BYOL"]
-pre_train = "SparK"
-# Insert the downloaded file hier (.ckpt or .pth) 
+# Insert the downloaded file hier (.ckpt) 
 pre_training_checkpoint = "/path/to/download/model.ckpt"
 
 # PyTorch Resnet Model
@@ -93,11 +95,7 @@ print(format(pretrained_model))
 # missing_keys=
   # ['fc.weight', 'fc.bias'] (beacuse the last fully connected layer was not pre-trained) 
 # unexpected_keys= 
-  # MoCo: All "encoder_k" layers (because MoCo has 2 encoders and we use only encoder_q)
-  # BYOL: All "online_network.projector" and "target_network.encoder" layers (because BYOL has 2 encoders and we only the online_network.encoder)
-  # SwAV: All "projection_head" layers (beacuse SwAV has an aditional projection head for the online clustering) 
-  # SparK: []
-
+  # All "projection_head" layers (beacuse SwAV has an aditional projection head for the online clustering) 
 ```
 
 ## Contact
@@ -115,14 +113,14 @@ If you have any questions, please email me:
 
 ## Cite
 ```latex
-@article{wolf2023self,
-  title={Self-supervised pre-training with contrastive and masked autoencoder methods for dealing with small datasets in deep learning for medical imaging},
-  author={Wolf, Daniel and Payer, Tristan and Lisson, Catharina Silvia and Lisson, Christoph Gerhard and Beer, Meinrad and G{\"o}tz, Michael and Ropinski, Timo},
-  journal={Scientific Reports},
-  volume={13},
-  number={1},
-  pages={20260},
-  year={2023},
-  publisher={Nature Publishing Group UK London}
+@article{WOLF2024109242,
+title = {Less is More: Selective reduction of CT data for self-supervised pre-training of deep learning models with contrastive learning improves downstream classification performance},
+author = {Daniel Wolf and Tristan Payer and Catharina Silvia Lisson and Christoph Gerhard Lisson and Meinrad Beer and Michael Götz and Timo Ropinski},
+journal = {Computers in Biology and Medicine},
+volume = {183},
+pages = {109242},
+year = {2024},
+issn = {0010-4825},
+doi = {https://doi.org/10.1016/j.compbiomed.2024.109242},
 }
 ```
