@@ -8,8 +8,6 @@ We used the implementation of PyTorch Lightning Bolds [https://lightning.ai/docs
 #### Option 1: Use the latest PyTorch Lightning Bolts implementation
 You can use the implementation of PyTorch Lightning Bolts. You only have to change the data loading. 
 - SwAV: [https://github.com/Lightning-Universe/lightning-bolts/blob/master/src/pl_bolts/models/self_supervised/swav/swav_module.py](https://github.com/Lightning-Universe/lightning-bolts/blob/master/src/pl_bolts/models/self_supervised/swav/swav_module.py)
-- MoCoV2: [https://github.com/Lightning-Universe/lightning-bolts/blob/master/src/pl_bolts/models/self_supervised/moco/moco_module.py](https://github.com/Lightning-Universe/lightning-bolts/blob/master/src/pl_bolts/models/self_supervised/moco/moco_module.py)
-- BYOL: [https://github.com/Lightning-Universe/lightning-bolts/tree/master/src/pl_bolts/models/self_supervised/byol](https://github.com/Lightning-Universe/lightning-bolts/tree/master/src/pl_bolts/models/self_supervised/byol)
 
 #### Option 2: Use our PyTorch Lightning Bolts adapion
 2. Change the folder structure of the preprocessed data to: 
