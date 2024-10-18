@@ -2,7 +2,7 @@
 
 Publication about self-supervised pre-training in medical imaging accepted in the Elsevier Journal [Computers in Biology and Medicine](https://www.sciencedirect.com/journal/computers-in-biology-and-medicine). 
 
-DOI: [https://doi.org/10.1038/s41598-023-46433-0](https://doi.org/10.1016/j.compbiomed.2024.109242)
+DOI: [https://doi.org/10.1016/j.compbiomed.2024.109242](https://doi.org/10.1016/j.compbiomed.2024.109242)
 
 ## Introduction
 ![image](https://github.com/user-attachments/assets/445bc797-62b9-472f-8173-518c0e042d86)
