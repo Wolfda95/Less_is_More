@@ -1,4 +1,4 @@
-# Pre-Training with SwAV, MoCoV2, BYOL
+# Pre-Training with SwAV
 
 We used the implementation of PyTorch Lightning Bolds [https://lightning.ai/docs/pytorch/stable/ecosystem/bolts.html](https://lightning.ai/docs/pytorch/stable/ecosystem/bolts.html)
 
