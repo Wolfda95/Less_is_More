@@ -10,7 +10,7 @@ You can use the implementation of PyTorch Lightning Bolts. You only have to chan
 - SwAV: [https://github.com/Lightning-Universe/lightning-bolts/blob/master/src/pl_bolts/models/self_supervised/swav/swav_module.py](https://github.com/Lightning-Universe/lightning-bolts/blob/master/src/pl_bolts/models/self_supervised/swav/swav_module.py)
 
 #### Option 2: Use our PyTorch Lightning Bolts adapion
-2. Change the folder structure of the preprocessed data to: 
+2. Change the folder structure of the preprocessed data so that you have one subfolder were all the images are stored in: 
     ```bash
         LIDC-Data
          /        
